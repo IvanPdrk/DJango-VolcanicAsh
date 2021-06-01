@@ -1,5 +1,50 @@
 {% extends 'base.html' %}
 
 
+
+
 {% block content %}
+
+
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-6 pt-3 pb-3" id="profile-box">
+            <h4 class="mb-4">New run!</h4>
+
+            <form method="POST" action="https://www.ready.noaa.gov/hyreg-bin/disptype.pl">
+                <input type="hidden" placeholder="metdata" name="metdata" value="HRRR"/>
+                <input type="hidden" placeholder="SOURCELOC" name="SOURCELOC" value="decdegree" required="false"/>
+                <input type="hidden" placeholder="Latm" name="Latm" value="" required="false"/>
+                <input type="hidden" placeholder="Lats" name="Lats" value="" required="false"/>
+                <input type="hidden" placeholder="Latd" name="Latd" value="" required="false"/>
+                <input type="hidden" placeholder="Latdns" name="Latdns" value="N" required="false"/>
+                <input type="hidden" placeholder="Lond" name="Lond" value="" required="false"/>
+                <input type="hidden" placeholder="Londew" name="Londew" value="W" required="false"/>
+                <input type="hidden" placeholder="Lonm" name="Lonm" value="" required="false"/>
+                <input type="hidden" placeholder="Lons" name="Lons" value="" required="false"/>
+                <br>
+                <input class="form-control" type="text" placeholder="lat" name="lat" required="true"/>
+                <br>
+                <select class="form-control" placeholder="latns" name="latns" required="true">
+                    <option>N</option>
+                    <option>S</option>
+                </select>
+                <br>
+                <input class="form-control" type="text" placeholder="lon" name="lon" required="true" />
+                <br>
+                <select class="form-control" placeholder="latew" name="latnew" required="true">
+                    <option>E</option>
+                    <option>w</option>
+                </select>
+
+            
+                <input type="submit" value="Submit">
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
 {% endblock %}

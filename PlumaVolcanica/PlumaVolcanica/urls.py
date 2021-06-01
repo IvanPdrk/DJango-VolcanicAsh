@@ -16,9 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from pluma import views as pluma_views
+from Webforms import views as form_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('pluma/', pluma_views.index),
-    path('manual/',pluma_views.formulario),
+    path('pluma/', form_views.index),
+    #path('manual/',pluma_views.formulario),
+    path('form/', form_views.formulario)
 ]
