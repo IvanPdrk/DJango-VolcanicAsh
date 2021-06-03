@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 from requests_html import HTMLSession
  
-url = "https://www.ready.noaa.gov/hyreg-bin/dispsrc.pl?category=Volcanic_ash"
+#url = "https://www.ready.noaa.gov/hyreg-bin/dispsrc.pl?category=Volcanic_ash"
 
 #forms
 class PlumaForm(forms.Form):
@@ -30,5 +30,3 @@ class PlumaForm(forms.Form):
 
     Londew=forms.BooleanField(required=False, disabled=True)
     VOLCNAME=forms.CharField(required=False, disabled=True)
-
-

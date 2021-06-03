@@ -7,8 +7,7 @@ from Webforms.forms import PlumaForm
 
 #AUTOMATION CODE
 
-s = requests.Session()
-s.auth = ('jjimeneze@ipn.mx', 'Alexandro04')
+
 
 payload = {
     "metdata":"GFS",
@@ -27,8 +26,8 @@ payload = {
     "Londew":"E",
     "VOLCNAME":""
 }
-r = s.get("https://www.ready.noaa.gov/hyreg-bin/dispsrc.pl?category=Volcanic_ash")
-r1 = s.post("https://www.ready.noaa.gov/hyreg-bin/disptype.pl", data=payload, cookies=r.cookies, timeout=10)   
+#r = s.get("https://www.ready.noaa.gov/hyreg-bin/dispsrc.pl?category=Volcanic_ash")
+#r1 = s.post("https://www.ready.noaa.gov/hyreg-bin/disptype.pl", data=payload, cookies=r.cookies, timeout=10)   
 #print(r1.text)
 
 # Create your views here.
@@ -43,5 +42,8 @@ def formulario(request):
         if form.is_valid():
             print(form.cleaned_data)
     else:
+        s = requests.Session()
+        s.auth = ('jjimeneze@ipn.mx', 'Alexandro04')
+        r = s.get("https://www.ready.noaa.gov/hyreg-bin/dispsrc.pl?category=Volcanic_ash")
         form = PlumaForm()
     return render(request, 'Pluma/pluma_form.html')

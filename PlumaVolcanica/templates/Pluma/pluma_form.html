@@ -12,7 +12,7 @@
             <h4 class="mb-4">New run!</h4>
 
             <form method="POST" action="https://www.ready.noaa.gov/hyreg-bin/disptype.pl">
-                <input type="hidden" placeholder="metdata" name="metdata" value="HRRR"/>
+                <input type="hidden" placeholder="metdata" name="metdata" value="GFS"/>
                 <input type="hidden" placeholder="SOURCELOC" name="SOURCELOC" value="decdegree" required="false"/>
                 <input type="hidden" placeholder="Latm" name="Latm" value="" required="false"/>
                 <input type="hidden" placeholder="Lats" name="Lats" value="" required="false"/>
@@ -23,16 +23,16 @@
                 <input type="hidden" placeholder="Lonm" name="Lonm" value="" required="false"/>
                 <input type="hidden" placeholder="Lons" name="Lons" value="" required="false"/>
                 <br>
-                <input class="form-control" type="text" placeholder="lat" name="lat" required="true"/>
+                <input class="form-control" type="text" placeholder="Latitud" name="Lat" required="true"/>
                 <br>
-                <select class="form-control" placeholder="latns" name="latns" required="true">
+                <select class="form-control" placeholder="Latns" name="Latns" required="true">
                     <option>N</option>
                     <option>S</option>
                 </select>
                 <br>
-                <input class="form-control" type="text" placeholder="lon" name="lon" required="true" />
+                <input class="form-control" type="text" placeholder="Longitud" name="Lon" required="true" />
                 <br>
-                <select class="form-control" placeholder="latew" name="latnew" required="true">
+                <select class="form-control" placeholder="latew" name="Latnew" required="true">
                     <option>E</option>
                     <option>w</option>
                 </select>
