@@ -14,13 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from pluma import views as pluma_views
-from Webforms import views as form_views
+from django.urls import path, include
+#from Webforms import views as form_views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('pluma/', form_views.index),
-    #path('manual/',pluma_views.formulario),
-    path('form/', form_views.formulario)
+    path('admin/', admin.site.urls,name="admin"),
+    path('',include(('Webforms.urls','Webforms'), namespace='Webforms')),
 ]

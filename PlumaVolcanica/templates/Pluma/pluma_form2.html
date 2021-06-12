@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+
+{%block head_content%}
+    <title>Formulario datos</title>
+    <body id="page-top">
+{% endblock %}
+
+
+{% block container %}
+
+
+
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-6 pt-3 pb-3" id="profile-box">
+            <h4 class="mb-4">Info...</h4>
+
+            <form method="POST" action="/form3/">
+                {% csrf_token %}
+                Meteorological Forecast (UTC)
+                <select class="form-control" name="metcyc" required="true">
+                    <option>18</option>
+                    <option>12</option>
+                    <option>06</option>
+                    <option>00</option>
+                </select>
+                <br>
+
+                Input and Output altitude units
+                <select class="form-control"  name="altunits" required="true">
+                    <option>meters</option>
+                    <option>feet</option>
+                </select>
+                <br>
+
+                Number of concentration layers
+                <select class="form-control" name="numlayers" required="true">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                </select>
+                <br>
+
+                Deposition/Ashfall
+                <select class="form-control" name="depopts" required="true">
+                    <option>No</option>
+                    <option>Yes</option>
+                </select>
+                <br>
+
+                Force Synoptic Time Intervals
+                <select class="form-control" name="synoptic" required="true">
+                    <option>No</option>
+                    <option>Yes</option>
+                </select>
+                <br>
+
+                Change particle size distribution
+                <select class="form-control" name="adsrcpart" required="true">
+                    <option>No</option>
+                    <option>Yes</option>
+                </select>
+                <br>
+
+                Use non-uniform vertical ash distribution.
+                <select class="form-control" name="adsrcvert" required="true">
+                    <option>No</option>
+                    <option>Yes</option>
+                </select>
+                <br>
+
+                Mass eruption rate.
+                <select class="form-control" name="adsrcquan" required="true">
+                    <option value="Calculate+form+eruption+height">Calculate form eruption height</option>
+                    <option>User-entered</option>
+                    <option>Use USGS-assigned ESP for this volcano</option>
+                </select>
+                <br>
+
+                <input type="hidden" name="advanced" value="No"/>
+                <br>
+
+                Label "This is a test".
+                <select class="form-control" name="testva" required="true">
+                    <option>Yes</option>
+                    <option>No</option>
+                </select>
+                <br>
+
+
+                <input type="submit" value="Submit">
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

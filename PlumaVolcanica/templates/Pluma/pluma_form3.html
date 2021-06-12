@@ -1,0 +1,246 @@
+{% extends 'base.html' %}
+
+
+
+
+{% block container %}
+
+
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-6 pt-3 pb-3" id="profile-box">
+            <h4 class="mb-4">Form 3</h4>
+
+            <form method="POST" action="https://www.ready.noaa.gov/hyreg-bin/disp1.pl">
+                {% csrf_token %}
+                <div>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td nowrap=""></td>
+                                <b>Releasing start time</b>
+                                <td align="center">Year <br>
+                                    <select class="form-control" name="Start+year" required="true">
+                                        <option>21</option>
+                                    </select>
+
+                                </td>
+
+                                <td align="center">Month <br>
+                                    <select class="form-control" name="Start+month" required="true">
+                                        <option>05</option>
+                                        <option>06</option>
+                                    </select>
+
+                                </td>
+
+                                <td align="center">Day <br>
+                                    <select class="form-control" name="Start+day" required="true">
+                                        <option>05</option>
+                                        <option>06</option>
+                                        <option>07</option>
+                                        <option>08</option>
+                                        <option>09</option>
+                                        <option>10</option>
+                                        <option>11</option>
+                                        <option>12</option>
+                                    </select>
+
+                                </td>
+
+                                <td align="center">Hour <br>
+                                    <select class="form-control" name="Start+hour" required="true">
+                                        <option>00</option>
+                                        <option>01</option>
+                                        <option>02</option>
+                                        <option>03</option>
+                                        <option>04</option>
+                                        <option>05</option>
+                                        <option>06</option>
+                                        <option>07</option>
+                                        <option>08</option>
+                                        <option>09</option>
+                                        <option>10</option>
+                                        <option>11</option>
+                                        <option>12</option>
+                                        <option>13</option>
+                                        <option>14</option>
+                                        <option>15</option>
+                                        <option>16</option>
+                                        <option>17</option>
+                                        <option>18</option>
+                                        <option>19</option>
+                                        <option>20</option>
+                                        <option>21</option>
+                                        <option>22</option>
+                                        <option>23</option>
+                                    </select>
+                                </td>
+
+                                <td align="center">Minute<br>
+                                    <select class="form-control" name="Start+min" required="true">
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+                                        <option>10</option>
+                                        <option>11</option>
+                                        <option>12</option>
+                                        <option>13</option>
+                                        <option>14</option>
+                                        <option>15</option>
+                                        <option>16</option>
+                                        <option>17</option>
+                                        <option>18</option>
+                                        <option>19</option>
+                                        <option>20</option>
+                                        <option>21</option>
+                                        <option>22</option>
+                                        <option>23</option>
+                                        <option>24</option>
+                                        <option>25</option>
+                                        <option>26</option>
+                                        <option>27</option>
+                                        <option>28</option>
+                                        <option>29</option>
+                                        <option>30</option>
+                                        <option>31</option>
+                                        <option>32</option>
+                                        <option>33</option>
+                                        <option>34</option>
+                                        <option>35</option>
+                                        <option>36</option>
+                                        <option>37</option>
+                                        <option>38</option>
+                                        <option>39</option>
+                                        <option>40</option>
+                                        <option>41</option>
+                                        <option>42</option>
+                                        <option>43</option>
+                                        <option>44</option>
+                                        <option>45</option>
+                                        <option>46</option>
+                                        <option>47</option>
+                                        <option>48</option>
+                                        <option>49</option>
+                                        <option>50</option>
+                                        <option>51</option>
+                                        <option>52</option>
+                                        <option>53</option>
+                                        <option>54</option>
+                                        <option>55</option>
+                                        <option>56</option>
+                                        <option>57</option>
+                                        <option>58</option>
+                                        <option>59</option>
+                                    </select>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+                <br>
+                <b>Runtime Parameters</b><br>
+                Total Duration
+                <select class="form-control" name="duration" required="true">
+                    <option>0.25</option>
+                    <option>0.50</option>
+                    <option>0.75</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>8</option>
+                    <option>10</option>
+                    <option>12</option>
+                    <option>15</option>
+                    <option>18</option>
+                    <option>21</option>
+                    <option>24</option>
+                    <option>27</option>
+                    <option>30</option>
+                    <option>33</option>
+                    <option>36</option>
+                    <option>39</option>
+                    <option>42</option>
+                    <option>45</option>
+                    <option>48</option>
+                    <option>51</option>
+                    <option>54</option>
+                    <option>51</option>
+                    <option>60</option>
+                    <option>63</option>
+                    <option>66</option>
+                    <option>69</option>
+                    <option>72</option>
+                    <option>200</option>
+
+                </select>
+                <br>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td nowrap=""></td>
+                            <b>Sampling type</b>
+                            <td align="center">Average
+                                <input type="radio" name="sample" value="0" checked="">
+                                &nbsp&nbsp&nbsp Snapshot
+                                <input type="radio" name="sample" value="1" >
+                                    &nbsp&nbsp&nbsp 1-Hour Snapshot
+                                <input type="radio" name="sample" value="-1" >
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+
+                Averaging Period/Ouput Interval.
+                <select class="form-control" name="Avg+Period+Hrs" required="true">
+                    <option>0.25</option>
+                    <option>0.50</option>
+                    <option>0.75</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>8</option>
+                    <option>12</option>
+                    <option>24</option>
+                </select>
+                <br>
+
+                Top Averaged layer.
+                <input type="text" name="Output+lvltop" value="180000" size="8">
+                <br>
+
+                <input type="hidden" name="gis" value="1">
+                <input type="hidden" name="gsize" value="96">
+                <input type="hidden" name="Zoom+Factor" value="0">
+                <input type="hidden" name="circle" value="-1">
+                <input type="hidden" name="circlekm" value="10">
+                <input type="hidden" name="county" value="arlmap">
+                <input type="hidden" name="psfile" value="No">
+                <input type="hidden" name="pdffile" value="Yes">
+
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

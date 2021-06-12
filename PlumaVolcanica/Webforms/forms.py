@@ -1,32 +1,54 @@
-#Django 
 from django import forms
+from django.contrib.auth.models import User
 
-#automation process libraries
-import requests
-from bs4 import BeautifulSoup
-from urllib.parse import urljoin
-from requests_html import HTMLSession
- 
-#url = "https://www.ready.noaa.gov/hyreg-bin/dispsrc.pl?category=Volcanic_ash"
+class SignupForm(forms.Form):
+    """Sign up form."""
 
-#forms
-class PlumaForm(forms.Form):
-    """Pluma form"""
+    username = forms.CharField(min_length=3, max_length=20)
 
-    metdata="HRRR"
-    SOURCELOC="decdegree"
-    Lat=forms.DecimalField(required=True)
-    Latns=forms.BooleanField(required=True)
-    Lon=forms.DecimalField(required=True)
-    Lonew=forms.BooleanField(required=True)
+    password = forms.CharField(
+        min_length=3,
+        max_length=20,
+        widget=forms.PasswordInput()
+    )
+    password_confirmation = forms.CharField(
+        min_length=3,
+        max_length=20,
+        widget=forms.PasswordInput()
+    )
 
-    Latd=forms.DecimalField(disabled=True)
-    Latm=forms.DecimalField(disabled=True)
-    Lats=forms.DecimalField(disabled=True)
-    Latdns=forms.BooleanField(required=True)
-    Lond=forms.DecimalField(disabled=True)
-    Lonm=forms.DecimalField(disabled=True)
-    Lons=forms.DecimalField(disabled=True)
+    first_name = forms.CharField(min_length=3, max_length=20,required=True)
+    last_name = forms.CharField(min_length=3, max_length=20,required=True)
 
-    Londew=forms.BooleanField(required=False, disabled=True)
-    VOLCNAME=forms.CharField(required=False, disabled=True)
+    email = forms.CharField(
+        min_length=6,
+        max_length=70,
+        widget=forms.EmailInput()
+    )
+
+    def clean_username(self):
+        """Username must be unique."""
+        username = self.cleaned_data['username']
+        username_taken = User.objects.filter(username=username).exists()
+        if username_taken:
+            raise forms.ValidationError('Username is already in use.')
+        return username
+
+    def clean(self):
+        """Verify password confirmation match."""
+        data = super().clean()
+
+        password = data['password']
+        password_confirmation = data['password_confirmation']
+
+        if password != password_confirmation:
+            raise forms.ValidationError('Passwords do not match.')
+
+        return data
+
+    def save(self):
+        """Create user and profile."""
+        data = self.cleaned_data
+        data.pop('password_confirmation')
+
+        user = User.objects.create_user(**data)
